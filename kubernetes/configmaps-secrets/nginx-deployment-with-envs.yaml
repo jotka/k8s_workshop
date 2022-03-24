@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-with-configmap
+  namespace: orba-workshop
+  labels:
+    app: nginx-with-configmap
+spec:
+  selector:
+    matchLabels:
+      app: nginx-with-configmap
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-with-configmap
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              name: http
+          envFrom:
+            - configMapRef:
+                name: my-config-literals
+            - secretRef:
+                name: my-secret-literals
+
+

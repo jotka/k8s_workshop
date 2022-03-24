@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config-files
+  namespace: orba-workshop
+  labels:
+    app: my-config-files
+data:
+  file1.txt: |
+    lorem ipsum in file1.txt
+    lorem ipsum in file2.txt
+
+  file2.txt: |
+    lorem ipsum in file2.txt
+    lorem ipsum in file2.txt

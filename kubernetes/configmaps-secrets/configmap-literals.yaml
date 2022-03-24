@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config-literals
+  namespace: orba-workshop
+  labels:
+    app: my-config-literals
+data:
+  MY_VARIABLE1: "abc"
+  MY_VARIABLE2: "123"
+  MY_VARIABLE3: "xyz"
+  MY_VARIABLE4: "246"
+  MY_VARIABLE5: "JKL"
