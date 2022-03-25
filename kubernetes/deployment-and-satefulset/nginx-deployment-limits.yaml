@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-limits
+  namespace: orba-workshop
+  labels:
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx-limits
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx-limits
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              cpu: "4"
+              memory: 96Gi
+            requests:
+              cpu: "1"
+              memory: 16Gi
+
